@@ -1,16 +1,9 @@
+##e the official ArangoDB image
 FROM arangodb:latest
 
-EXPOSE 8529
+# Expose the default ports
+EXPOSE 8529 8530
 
-# Create a working directory
-WORKDIR /var/lib/arangodb3
 
-# Set environment variables for initial username and password
-ENV ARANGO_RANDOM_ROOT_PASSWORD=root
-
+# Start ArangoDB
 CMD ["arangod"]
-RUN chmod +x /entrypoint.sh
-
-CMD ["/entrypoint.sh"]
-
-
